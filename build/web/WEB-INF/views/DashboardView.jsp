@@ -6,6 +6,6 @@
         <title>e-Pocket</title>
     </head>
     <body>
-        <h1>Dashboard</h1>
+        <h1>Dashboard </h1>
     </body>
 </html>
