@@ -32,7 +32,7 @@ public class SendMail {
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             message.setSubject(sub);
-            message.setText(msg);
+            message.setContent(msg,"text/html");
             Transport.send(message);
             
         }catch(Exception e){

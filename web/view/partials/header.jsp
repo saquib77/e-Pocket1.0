@@ -11,7 +11,7 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
             <script src="//geodata.solutions/includes/countrystatecity.js"></script>
-        <link rel="stylesheet" href="/stylesheet/main.css">
+            <link href="../../public/stylesheet/main.css" rel="stylesheet" type="text/css"/>
         
         
   </head>
@@ -33,16 +33,8 @@
                 <li><a href="/ep/">Home</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                 <% 
-                    String user = session.getAttribute("currentUser").toString();
-                    if(user=="0"){ 
-                 %> 
-                    <li><a href="fc/Login">Login</a></li>
-                    <li><a href="fc/Register">Sign Up</a></li>
-                    <% } else if(user=="1") { %>
-                    <li><a href="#">Signed In As ${user}</a></li>
-                    <li><a href="fc/Login">Logout</a></li>
-                <% } %>
+                    <li><a href="LoginPage">Login</a></li>
+                    <li><a href="RegisterPage">Sign Up</a></li>
             </ul>
           </div>
       </div>

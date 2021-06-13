@@ -12,6 +12,7 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
                 </div>
+                
             </form>
             <a href="/ep/">Go Back | </a> 
             <a href="Verify">Verify Your Account</a> 
