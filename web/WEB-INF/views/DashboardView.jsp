@@ -9,7 +9,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="">Dashboard</a>
+                        <a class="navbar-brand" href="#">Dashboard</a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-left">
@@ -23,10 +23,11 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <%
-                                    name = (String)session.getAttribute("currentUser");
+                                     
+                                    session.setAttribute("currentUser", name);
                                 %>
-                                <a href="">
-                                    Logged In as <%= name %>
+                                <a href="#">
+                                    Logged In as <strong> <%= name %> </strong>
                                 </a>
                             </li>
                             <li>
@@ -42,19 +43,6 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="header">
-                                    <h4 class="title">Users Behavior</h4>
-
-                                </div>
-                                <div id="cal-heatmap"></div>
-                                <script type="text/javascript">
-                                    var cal = new CalHeatMap();
-                                    cal.init({});
-                                </script>
-                            </div>
-                        </div>
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="header">

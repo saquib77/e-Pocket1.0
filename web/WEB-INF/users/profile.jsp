@@ -1,9 +1,3 @@
-<%-- 
-    Document   : newUser
-    Created on : 8 Jun, 2021, 9:18:00 PM
-    Author     : saquib
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

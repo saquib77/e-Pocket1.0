@@ -40,6 +40,7 @@
            Login l = new Login();
            String email = request.getParameter("email");
            String name = l.getUname(email);
+           session.setAttribute("currentUser", name);
         %>
     <div class="wrapper">
         <div class="sidebar" data-color="blue" data-image="../assets/img/sidebar-5.jpg">
@@ -67,10 +68,15 @@
                         </a>
                     </li>
                     <li class="active">
-                        
                         <a href="DocumentPage">
                             <i class="pe-7s-notebook    "></i>
                             <p>Document List</p>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="UploadPage">
+                            <i class="pe-7s-up-arrow"></i>
+                            <p>Upload Document</p>
                         </a>
                     </li>
                     <li class="active">

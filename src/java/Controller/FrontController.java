@@ -38,7 +38,7 @@ public class FrontController extends HttpServlet {
                     pi = "/VerifyPage";
                 }else if(res!=null){
                     HttpSession hs =  request.getSession();
-                    String user = (String)request.getAttribute("");
+                    String user = (String)request.getAttribute("currentUser");
                     hs.setAttribute("currentUser", res);
                     pi = "/DashboardPage";
                 }
@@ -65,6 +65,16 @@ public class FrontController extends HttpServlet {
                 }else{
                     pi = "/VerifyPage";
                 }
+            }else if(pi.equals("/Upload")){
+                Upload u = (Upload)Class.forName("Business."+pi.substring(1)).newInstance();
+                String up = u.businessLogic(request);
+                if(up.equals("uploaded")){
+                    pi = "/DashboardPage";
+                }else if(up.equals("error")){
+                    pi = "/UploadPage";
+                }
+            }else if(pi.equals("/AboutUs")){
+                pi = "/AboutUs";
             }
             
             Properties prop = new Properties();
