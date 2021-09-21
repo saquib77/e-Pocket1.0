@@ -24,13 +24,14 @@ public class Register implements Business {
         String st="unsuccessfull";
         DBCON db = new DBCON();
         try{
-            db.pstmt = db.con.prepareStatement("select MAX(uid) from user_master where(email=?)");
-            db.pstmt.setString(1,email);
+            db.pstmt = db.con.prepareStatement("select MAX(uid) from user_master");
             db.rst = db.pstmt.executeQuery();
             int uid=0;
             if(db.rst.next()){
                 uid = db.rst.getInt(1);
-            }else uid = uid+1;
+                uid=uid+1;
+            }
+            System.out.println(uid);
             db.pstmt = db.con.prepareStatement("select id from countries where(name=?)");
             db.pstmt.setString(1,country);
             db.rst = db.pstmt.executeQuery();
@@ -83,7 +84,7 @@ public class Register implements Business {
                     db.pstmt.setString(2,otp);
                     db.pstmt.executeUpdate();
                     SendMail sm = new SendMail();
-                    String msg = firstname+" "+lastname +"Please Verify Your Account & Your OTP is :" +otp;
+                    String msg ="<h3>"+ firstname+" "+lastname +"Please Verify Your Account & Your OTP is :" +otp+"</h3>";
                     sm.mailSender(email, msg);
                     s=1;
                 }

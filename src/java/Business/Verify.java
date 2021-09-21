@@ -20,7 +20,8 @@ public class Verify implements Business{
                 otpdb = db.rst.getString("verification_code");
             }
             if(otp.equals(otpdb)){
-                db.pstmt = db.con.prepareStatement("update email_verification set verification_time=now()");
+                db.pstmt = db.con.prepareStatement("update email_verification set verification_time=now() where email=?");
+                db.pstmt.setString(1,email);
                 db.pstmt.executeUpdate();
                 db.pstmt = db.con.prepareStatement("update login_master set status=1");
                 db.pstmt.executeUpdate();

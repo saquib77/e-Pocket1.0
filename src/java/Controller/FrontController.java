@@ -28,18 +28,19 @@ public class FrontController extends HttpServlet {
                 Login obj = (Login)Class.forName("Business."+pi.substring(1)).newInstance();
                 String res = obj.businessLogic(request);
                 System.out.println("Login "+res);
-                if(res.equals("loggedin")){
-                    HttpSession hs =  request.getSession();
+                if(res.equals("ude")){
+                    HttpSession hs = request.getSession();
                     hs.setAttribute("currentUser", res);
-                    pi = "/DashboardPage";
+                    pi = "/ErrorPage";
                 }else if(res.equals("verify")){
                     HttpSession hs = request.getSession();
                     hs.setAttribute("currentUser", res);
                     pi = "/VerifyPage";
-                }else if(res.equals("ude")){
-                    HttpSession hs = request.getSession();
+                }else if(res!=null){
+                    HttpSession hs =  request.getSession();
+                    String user = (String)request.getAttribute("currentUser");
                     hs.setAttribute("currentUser", res);
-                    pi = "/ErrorPage";
+                    pi = "/DashboardPage";
                 }
             }else if(pi.equals("/Register")){
                 Register reg = (Register)Class.forName("Business."+pi.substring(1)).newInstance();
@@ -64,6 +65,16 @@ public class FrontController extends HttpServlet {
                 }else{
                     pi = "/VerifyPage";
                 }
+            }else if(pi.equals("/Upload")){
+                Upload u = (Upload)Class.forName("Business."+pi.substring(1)).newInstance();
+                String up = u.businessLogic(request);
+                if(up.equals("uploaded")){
+                    pi = "/DashboardPage";
+                }else if(up.equals("error")){
+                    pi = "/UploadPage";
+                }
+            }else if(pi.equals("/AboutUs")){
+                pi = "/AboutUs";
             }
             
             Properties prop = new Properties();
